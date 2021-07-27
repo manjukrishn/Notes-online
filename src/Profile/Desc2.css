@@ -1,0 +1,37 @@
+
+.remove-icon-desc-table {
+  opacity: 0;
+  width: 5px;
+  padding-right:10px;
+  cursor: pointer;
+}
+.desc-table-row:hover .remove-icon-desc-table {
+  opacity: 1;
+}
+.desc-table {
+  position: absolute;
+  width: 100vw;
+}
+.sort-buttons {
+  margin-left: 5px;
+  margin-top: 20px;
+  z-index: -1;
+}
+.add-remove-icons {
+  color: #1769aa;
+  margin-top:100px;
+  margin-left:94vw;
+  font-size:30px;
+  position: absolute;;
+  cursor: pointer;
+}
+.profiledetails-textfield {
+  margin-top: 120px;
+  margin-left:10px;
+}
+@media only screen and (min-width: 700px) {
+
+  .sort-buttons {
+    margin-left: calc(80vw);
+  }
+}

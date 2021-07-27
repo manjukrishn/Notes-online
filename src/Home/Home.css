@@ -1,0 +1,10 @@
+.homepage {
+  position: absolute;
+  min-height: 100vh;
+  min-width: calc(100vw);
+  margin-top: 80px;
+  background-color: #f8f8f8;
+  z-index: -1;
+  overflow-x: hidden;
+  padding-bottom: 2%;
+}

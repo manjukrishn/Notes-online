@@ -1,0 +1,21 @@
+* {
+  user-select: none;
+}
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar {
+  width: 2px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}

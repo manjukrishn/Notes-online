@@ -1,0 +1,8 @@
+.pdf-container::-webkit-scrollbar {
+  display: none;
+}
+
+.pdf-contai {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
