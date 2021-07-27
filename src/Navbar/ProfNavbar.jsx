@@ -9,7 +9,7 @@ export default function Nav() {
       <div>
         <MoreVertIcon
           id="more"
-          style={{ position: "absolute", zIndex: 100 }}
+          style={{ position: "absolute" }}
           onClick={() => {
             if (document.getElementById("navbar").style.width === "75px") {
               document.getElementById("navbar").style.width = "0px";
@@ -24,11 +24,8 @@ export default function Nav() {
           }}
         />
       </div>
-      <div style={{ height: "10px" }}>
+      <div style={{ position: "fixed" }}>
         <Sidebar />
-      </div>
-      <div style={{ height: "10px",marginTop:"-5px" }}>
-        <Topbar />
       </div>
     </div>
   );

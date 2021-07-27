@@ -10,7 +10,7 @@ export default function Topbar() {
   return (
     <div id="main">
       <div className="topbar">
-        <div style={{marginLeft:"30px"}}>
+        <div>
           <SearchBar />
         </div>
         {isLogin() ? (

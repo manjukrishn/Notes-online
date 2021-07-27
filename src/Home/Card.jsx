@@ -13,16 +13,13 @@ export default function CardComplete(props) {
     <Card
       raised={false}
       elevation={0}
-      style={{ zIndex: "-1" }}
+      style={{ cursor: "pointer" }}
       onClick={() => {
         localStorage.setItem("url", props.item.file);
         history.push("notes");
       }}
     >
-      <div
-        className="pdf-container"
-        style={{ overflow: "auto", overflowX: "hidden" }}
-      >
+      <div style={{ overflow: "auto", overflowX: "hidden" }}>
         <div style={{ zIndex: "-2", height: "190px" }}>
           <Pdf url={props.item.file} />
         </div>

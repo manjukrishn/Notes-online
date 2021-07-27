@@ -1,6 +1,5 @@
 import Desc from "./Profile";
-import "./styles.css";
-import Navbar from "../Navbar/Navbar";
+import Navbar from "../Navbar/ProfNavbar";
 export default function App() {
   return (
     <div className="App">

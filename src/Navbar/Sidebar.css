@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  z-index: 2;
+  z-index: 0;
 }
 body {
   min-height: 100vh;
@@ -18,7 +18,7 @@ body {
   height: 50px;
 }
 #navbar {
-  position: absolute;
+  position: fixed;
   width: 0px;
   height: 100vh;
   transition: 0.5s;
