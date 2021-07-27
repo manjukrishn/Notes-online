@@ -8,16 +8,22 @@ import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogTitle from "@material-ui/core/DialogTitle";
 import RemoveIcon from "@material-ui/icons/RemoveCircleOutlineRounded";
 import Paper from "@material-ui/core/Paper";
 import Loading from "../Loading/Loading";
 import "./Desc2.css";
+import Button from "@material-ui/core/Button";
 import EventNoteIcon from "@material-ui/icons/EventNote";
 import Tooltip from "@material-ui/core/Tooltip";
 import SubjectIcon from "@material-ui/icons/Subject";
 import IconButton from "@material-ui/core/IconButton";
 import DynamicFeedRoundedIcon from "@material-ui/icons/DynamicFeedRounded";
-
+import { useHistory } from "react-router-dom";
 import DeleteFileUtil from "./DeleteFileRef";
 import DeleteFile from "./DeleteFile";
 
@@ -29,6 +35,9 @@ const useStyles = makeStyles({
 
 export default function BasicTable(props) {
   const classes = useStyles();
+  const history = useHistory();
+  const [deleteFile, setDeleteFile] = React.useState();
+  const [open, setOpen] = React.useState(false);
   const [userFiles, setUserFiles] = React.useState([]);
   const [flag, setFlag] = React.useState(false);
   React.useEffect(() => {
@@ -75,6 +84,13 @@ export default function BasicTable(props) {
     setFlag(false);
   }, [flag]);
 
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
   function getNum(date) {
     var da = new Date(parseInt(date, 10));
     var dateToStr = da.toUTCString().split(" ");
@@ -138,12 +154,25 @@ export default function BasicTable(props) {
           <TableBody>
             {userFiles.map((file, index) => (
               <TableRow key={file.name} className="desc-table-row">
-                <TableCell component="th" scope="row">
+                <TableCell
+                  component="th"
+                  scope="row"
+                  style={{ cursor: "pointer" }}
+                  className="table-desc-cell row-cells"
+                  onClick={() => {
+                    localStorage.setItem("url", file.file);
+                    history.push("notes");
+                  }}
+                >
                   {file.name}
                 </TableCell>
-                <TableCell align="right">{file.sem}</TableCell>
-                <TableCell align="right">{file.branch}</TableCell>
-                <TableCell align="right">
+                <TableCell className="row-cells" align="right">
+                  {file.sem}
+                </TableCell>
+                <TableCell className="row-cells" align="right">
+                  {file.branch}
+                </TableCell>
+                <TableCell className="row-cells" align="right">
                   {file.date !== undefined && file.date !== null
                     ? getNum(file.date)
                     : "Date not entered"}
@@ -153,7 +182,10 @@ export default function BasicTable(props) {
                     <RemoveIcon
                       fontSize="small"
                       color="secondary"
-                      onClick={() => fileDelete(file.date)}
+                      onClick={() => {
+                        handleClickOpen();
+                        setDeleteFile(file);
+                      }}
                     />
                   </div>
                 </TableCell>
@@ -162,6 +194,37 @@ export default function BasicTable(props) {
           </TableBody>
         </Table>
       </TableContainer>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">
+          {"Use Google's location service?"}
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            The file will be deleted permanently. This action cannot be undone.
+            Do you want to proceed?
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} color="primary">
+            No
+          </Button>
+          <Button
+            onClick={() => {
+              handleClose();
+              fileDelete(deleteFile.date);
+            }}
+            color="primary"
+            autoFocus
+          >
+            Yes
+          </Button>
+        </DialogActions>
+      </Dialog>
     </div>
   );
 }

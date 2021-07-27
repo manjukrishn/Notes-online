@@ -2,7 +2,7 @@ import Desc from "./Profile";
 import Navbar from "../Navbar/ProfNavbar";
 export default function App() {
   return (
-    <div className="App">
+    <div>
       <Navbar />
       <Desc />
     </div>

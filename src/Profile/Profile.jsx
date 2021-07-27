@@ -23,7 +23,7 @@ export default function Profile() {
   rows.push(createData("Name", localStorage.getItem("name")));
   rows.push(createData("Email", localStorage.getItem("email")));
   return (
-    <div style={{ position: "absolute", zIndex: "1" }}>
+    <div style={{ position: "relative",zIndex:"1" }}>
       <AddNotes />
       <div className="profiledetails-textfield">
         {rows.map((item, index) => {

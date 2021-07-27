@@ -49,7 +49,12 @@ export default function Test(props) {
           onLoadSuccess={onDocumentLoadSuccess}
           onLoadError={(err) => console.log(err.message)}
         >
-          <Page height={180} pageNumber={pageNumber} scale={currScale} />
+          <Page
+            height={180}
+            loading={<div>{" "}</div>}
+            pageNumber={pageNumber}
+            scale={currScale}
+          />
         </Document>
       </div>
     </>
