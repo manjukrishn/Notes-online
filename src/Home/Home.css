@@ -1,4 +1,5 @@
 .homepage {
+  position: static;
   min-height: 100vh;
   min-width: calc(100vw);
   margin-top: 80px;
@@ -6,5 +7,4 @@
   z-index: -1;
   overflow-x: hidden;
   padding-bottom: 2%;
-  position: static;
 }

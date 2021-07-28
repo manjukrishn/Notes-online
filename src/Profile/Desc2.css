@@ -12,8 +12,8 @@
   position: absolute;
   width: 100vw;
 }
-.table-desc-cell:hover {
-  background-color: #f5f5f5;
+.table-desc-cell:hover .row-cells {
+  background: #f5f5f5;
 }
 .sort-buttons {
   margin-left: 5px;

@@ -18,7 +18,7 @@ body {
   height: 50px;
 }
 #navbar {
-  position: fixed;
+  position: absolute;
   width: 0px;
   height: 100vh;
   transition: 0.5s;

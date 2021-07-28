@@ -27,9 +27,6 @@ export default function Nav() {
       <div style={{ height: "10px" }}>
         <Sidebar />
       </div>
-      <div style={{ height: "10px",marginTop:"-5px" }}>
-        <Topbar />
-      </div>
     </div>
   );
 }

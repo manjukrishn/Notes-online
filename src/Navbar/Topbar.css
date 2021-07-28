@@ -1,8 +1,9 @@
 #main {
+  position: absolute;
   height: 100px;
   overflow: hidden;
-  padding-left:20px;
-  /* background: black; */
+  background: white;
+  padding-top: 10px;
   /* z-index: -1; */
 }
 .topbar {

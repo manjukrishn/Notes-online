@@ -6,12 +6,15 @@ import SignOut from "./SignOut";
 import { isLogin } from "../utils";
 import "./Topbar.css";
 
-export default function Topbar() {
+export default function Topbar(props) {
+  const changedSearch = (item) => {
+    props.change(item);
+  };
   return (
     <div id="main">
       <div className="topbar">
-        <div>
-          <SearchBar />
+        <div style={{ marginLeft: "30px" }}>
+          <SearchBar change={changedSearch} />
         </div>
         {isLogin() ? (
           <div className="sign-in">

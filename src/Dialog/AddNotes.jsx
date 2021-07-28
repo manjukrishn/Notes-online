@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     position: "relative"
   },
   title: {
-    marginLeft: theme.spacing(1),
+    marginLeft: theme.spacing(2),
     flex: 1
   }
 }));
@@ -62,7 +62,6 @@ export default function FullScreenDialog(props) {
     ) {
       const genfile = Date.now();
       Upload(file, genfile.toString()).then((getURl) => {
-        alert("New notes is added! May take time to reflect on your side");
         console.log(getURl);
         AddData(getURl, name, sem, branch, genfile);
         Util(genfile.toString(), name, sem, branch, getURl);

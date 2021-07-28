@@ -51,7 +51,7 @@ export default function Test(props) {
         >
           <Page
             height={180}
-            loading={<div>{" "}</div>}
+            loading={<div>" "</div>}
             pageNumber={pageNumber}
             scale={currScale}
           />

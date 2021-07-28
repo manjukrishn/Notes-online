@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     pointerEvents: "none",
     display: "flex",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "center"
   },
   inputRoot: {
     color: "inherit"
@@ -83,18 +83,23 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function PrimarySearchAppBar() {
+export default function PrimarySearchAppBar(props) {
   const classes = useStyles();
+  const [searchVal, setSearchVal] = React.useState();
   return (
     <div className={classes.grow}>
       <div className={classes.search}>
-       
         <InputBase
           placeholder="Search…"
-          style={{ border: "1px solid lightGray",fontSize:"18px" }}
+          style={{ border: "1px solid lightGray", fontSize: "18px" }}
           classes={{
             root: classes.inputRoot,
             input: classes.inputInput
+          }}
+          value={searchVal}
+          onChange={(e) => {
+            setSearchVal(e.target.value);
+            props.change(searchVal);
           }}
           inputProps={{ "aria-label": "search" }}
         />
